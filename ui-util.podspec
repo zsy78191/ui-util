@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ui-util"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "自动代码包，主要包括一些UI工具"
 
   # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   UUTest，用于自动内嵌方便开发使用的方法测试工具。
                    DESC
 
-  s.homepage     = "https://github.com/zsy78191/oc-util"
+  s.homepage     = "https://github.com/zsy78191/ui-util"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/zsy78191/oc-util.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/zsy78191/ui-util.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

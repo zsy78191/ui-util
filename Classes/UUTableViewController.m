@@ -22,6 +22,16 @@
     [[self tableView] registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
     self.title = @"开发调试";
+    if (self.handleClass) {
+        self.title = self.handleClass;
+    }
+    
+    
+    [self.navigationController.navigationBar setValue:@(YES) forKeyPath:@"hidesShadow"];
+    //    [self.tabBarController.tabBar setValue:@(YES) forKeyPath:@"hidesShadow"];
+    [self.navigationController.toolbar setValue:@(YES) forKey:@"hidesShadow"];
+    [self.navigationController.navigationBar setPrefersLargeTitles:YES];
+    [self.navigationController setToolbarHidden:NO animated:NO];
     
     if (self.type == UUTableViewControllerTypeClass) {
         UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithTitle:@"关闭" style:UIBarButtonItemStylePlain target:self action:@selector(closeMe)];
@@ -30,6 +40,8 @@
     else {
         
     }
+    
+    [[self tableView] setSeparatorColor:[UIColor colorWithWhite:0.96 alpha:1]];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
