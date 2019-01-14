@@ -167,9 +167,10 @@
 - (id<QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index
 {
     
-    NSString* path = [@"~/Documents/test.txt" stringByExpandingTildeInPath];
+    NSString* filepath = [@"~/Library/Caches/test.txt" stringByExpandingTildeInPath];
     
-    return [NSURL fileURLWithPath:path];
+    
+    return [NSURL fileURLWithPath:filepath];
 }
 
 - (void)previewControllerDidDismiss:(QLPreviewController *)controller
