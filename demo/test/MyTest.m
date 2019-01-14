@@ -25,5 +25,10 @@
     return @"名称测试";
 }
 
+- (NSDictionary*)dic
+{
+    return @{@"123":@"我爱你"};
+}
+
 
 @end

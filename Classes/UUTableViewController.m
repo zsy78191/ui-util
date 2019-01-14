@@ -142,14 +142,17 @@
             }
         }
 
-        NSString* filepath = [@"~/Library/Caches/test.txt" stringByExpandingTildeInPath];
+        NSString* filepath = [@"~/Library/Caches/result.txt" stringByExpandingTildeInPath];
         
         if (result) {
-            [[result description] writeToFile:filepath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+            NSData *data = [[result description] dataUsingEncoding:NSUTF8StringEncoding];
+            NSString *decodevalue = [[NSString alloc] initWithData:data encoding:NSNonLossyASCIIStringEncoding];
+            [decodevalue writeToFile:filepath atomically:YES encoding:NSUTF8StringEncoding error:nil];
             
             QLPreviewController *myQlPreViewController = [[QLPreviewController alloc]init];
             myQlPreViewController.delegate =self;
             myQlPreViewController.dataSource =self;
+            myQlPreViewController.title = method;
             [myQlPreViewController setCurrentPreviewItemIndex:0];
             //此处可以带导航栏跳转、也可以不带导航栏跳转、也可以拿到View进行Add
             [self.navigationController pushViewController:myQlPreViewController animated:YES];
@@ -167,7 +170,7 @@
 - (id<QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index
 {
     
-    NSString* filepath = [@"~/Library/Caches/test.txt" stringByExpandingTildeInPath];
+    NSString* filepath = [@"~/Library/Caches/result.txt" stringByExpandingTildeInPath];
     
     
     return [NSURL fileURLWithPath:filepath];
@@ -176,6 +179,8 @@
 - (void)previewControllerDidDismiss:(QLPreviewController *)controller
 {
 //    NSLog(@"预览界面已经消失");
+     NSString* filepath = [@"~/Library/Caches/result.txt" stringByExpandingTildeInPath];
+    [[NSFileManager defaultManager] removeItemAtPath:filepath error:nil];
 }
 
 //文件内部链接点击不进行外部跳转
