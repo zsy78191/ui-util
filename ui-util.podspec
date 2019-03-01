@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ui-util"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "自动代码包，主要包括一些UI工具"
 
   # This description is used to generate tags and improve search results.
